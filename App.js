@@ -11,7 +11,12 @@ function App() {
   const loadapi=()=>{
     fetch("https://api.postalpincode.in/postoffice/City").then((response)=>response.json()).then((json)=>{
       setdata(json)
-      console.log(typeof(data));
+      // console.log(typeof(data));
+      var x=data[0];
+      console.log(x.PostOffice);
+      setdata(x.PostOffice);
+
+      // console.log(data[0]);
       // console.log()
   
     }).catch((err)=>console.log(err))
@@ -21,7 +26,7 @@ function App() {
   const render = ({ item }) => {
     return (
       <View>
-        <Text>{item.Name}</Text>
+        <Text>{item.Pincode}</Text>
 
       </View>
     );
