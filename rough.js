@@ -4,7 +4,11 @@ import { Text, View, TouchableOpacity, FlatList,StyleSheet } from "react-native"
 
 function App({navigation}) {
   const [data, setdata] = useState([]);
-
+  const [showview, setshowview] = useState(false);
+  // const loadapi = () => {
+  //   fetch("https://api.postalpincode.in/postoffice/City").then((response) => response.json()).then((json) => setdata[json.PostOffice]);
+  //   console.log(data);
+  // };
   const navigateto=(item)=>{
     navigation.navigate("Details",{item})
   }
@@ -16,6 +20,8 @@ function App({navigation}) {
       console.log(x.PostOffice);
       setdata(x.PostOffice);
 
+      // console.log(data[0]);
+      // console.log()
 
     }).catch((err) => console.log(err))
 
@@ -41,7 +47,7 @@ function App({navigation}) {
   };
   return (
     <View>
-      <TouchableOpacity style={{borderWidth:2,borderRadius:10}} onPress={() => { loadapi(); }}>
+      <TouchableOpacity onPress={() => { loadapi(); }}>
         <Text>Press Me!</Text>
       </TouchableOpacity>
       <FlatList
@@ -65,4 +71,4 @@ const styles=StyleSheet.create({
     // alignItems:"flex-start"
   }
 })
-export default App;
+// export default App;
